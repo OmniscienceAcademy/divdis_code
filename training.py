@@ -1,12 +1,10 @@
-import itertools
-from itertools import product, cycle, chain
+from itertools import cycle, chain
 from defaults import *
 from evaluation import *
 from losses import *
 from evaluation import *
 from utils import *
 from datasets import Container
-from torchvision.utils import save_image
 
 
 def train_epoch_joint(models: List[nn.Module], labeled, unlabeled, max_batches, labeled_criterion: nn.Module,

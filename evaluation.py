@@ -1,15 +1,11 @@
-from operator import sub
 import torch
 from torch import nn
 from typing import List
 from defaults import *
-from datasets import Container
 import torch
 from scipy.ndimage.filters import gaussian_filter
 import numpy as np
 import torch.nn.functional as F
-from matplotlib import pyplot as plt
-from itertools import product
 
 
 def evaluate_labeled(models: List[nn.Module], data, device='cpu'):

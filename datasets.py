@@ -1,21 +1,13 @@
 from torch.utils.data import DataLoader
-from typing import Tuple
-import torchvision
-from torchvision.datasets import CIFAR10, MNIST
 from PIL import Image
 import os
 from torchvision import transforms
-from torchvision.datasets import VisionDataset
-from typing import Callable, Optional
 import torch
-from torch.utils.data import Dataset
 from defaults import DATA_PATH
 from glob import glob
 import os
 from defaults import *
-import numpy as np
 import random
-import itertools
 import json
 import torch as t
 

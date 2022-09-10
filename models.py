@@ -2,7 +2,6 @@ import torch
 from torch import nn
 import torchvision
 from torchvision import transforms
-from PIL import Image
 try:
     import clip
 except:

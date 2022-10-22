@@ -37,6 +37,8 @@ def name(features, head):
 def evaluate_unlabeled(models: List[nn.Module], data, n_features, device='cpu', get_subset_predictions=False):
     """Evaluate accuracy of models on both labels of target dataset"""
 
+    print("len validation set", len(data))
+
     if len(models) > 1:
         n = len(models)
     else:
@@ -77,7 +79,7 @@ def evaluate_unlabeled(models: List[nn.Module], data, n_features, device='cpu', 
                 for idx in idx_sets:
                     subset_size = 0
                     for target in all_targets:
-                        if (target == idx).sum() == n_features: #checks if target and idx are equal at every value
+                        if (target == idx).sum() == n_features: # checks if target and idx are equal at every value
                             subset_size += 1
                     subset_sizes[tuple(idx.tolist())] += subset_size
                     for h in range(n):
@@ -119,6 +121,9 @@ def evaluate_unlabeled(models: List[nn.Module], data, n_features, device='cpu', 
             performances[:, besthead] = -1
 
     if get_subset_predictions:
+        print("diag_accuracy", diag_accuracy)
+        print("feature_performances", feature_performances)
+        print("subset_predictions", subset_predictions)
         return diag_accuracy, feature_performances, subset_predictions
     else:
         return diag_accuracy, feature_performances

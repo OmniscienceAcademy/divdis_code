@@ -18,7 +18,7 @@ def train_epoch_joint(models: List[nn.Module], labeled, unlabeled, max_batches, 
     unlabeled = cycle(iter(unlabeled)) 
     i = 0
 
-    while i < max_batches:
+    while i < 2:
         labeled_batch, labels, _ = next(labeled) # confusingly, "targets" just means "labels"
         unlabeled_batch, _, hidden_labels = next(unlabeled) # unlab_targets is a tensor of labels for each feature
 

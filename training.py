@@ -134,8 +134,8 @@ class DistinctTrainer():
         worst_head_loss = 1 - min(head_performances)
         best_head_loss = 1 - max(head_performances)
 
-        print(f"worst {eval_mode} head loss={worst_head_loss}")
-        print(f"best {eval_mode} head loss={best_head_loss}")
+        print(f"worst {eval_mode} head accuracy = accuracy on the hard feature = {worst_head_loss}")
+        print(f" best {eval_mode} head accuracy = accuracy on the easy feature = {best_head_loss}")
 
         self.set_models_train(True)
 

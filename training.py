@@ -132,8 +132,10 @@ class DistinctTrainer():
                 n = self.models[0].get_num_heads()
 
         worst_head_loss = 1 - min(head_performances)
+        best_head_loss = 1 - max(head_performances)
 
         print(f"worst {eval_mode} head loss={worst_head_loss}")
+        print(f"best {eval_mode} head loss={best_head_loss}")
 
         self.set_models_train(True)
 

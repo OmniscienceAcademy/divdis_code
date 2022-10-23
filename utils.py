@@ -10,7 +10,7 @@ import torchvision.transforms.functional as F
 
 
 def set_seed(seed=0):
-    print('Seeding pseudo-random functions with seed {}...'.format(seed))
+    print("Seeding pseudo-random functions with seed {}...".format(seed))
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     torch.cuda.manual_seed(seed)
@@ -62,22 +62,26 @@ def test_containers_and_models(container, models, device):
 def save_params(models, name):
     for i, model in enumerate(models):
         ppath = os.path.join(PARAM_PATH, f"{name}_{i}")
-        print('Saving parameters: {}'.format(ppath))
+        print("Saving parameters: {}".format(ppath))
         torch.save(model.state_dict(), ppath)
 
 
 def load_params(models, name):
     for i, model in enumerate(models):
         ppath = os.path.join(PARAM_PATH, f"{name}_{i}")
-        print('Loading parameters: {}'.format(ppath))
+        print("Loading parameters: {}".format(ppath))
         model.load_state_dict(torch.load(ppath))
 
 
 def add_text(image, text):
     my_image = Image.open(image)
     image_editable = ImageDraw.Draw(my_image)
-    myFont = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 50)
+    myFont = ImageFont.truetype(
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 50
+    )
     W, H = my_image.size
     w, h = image_editable.textsize(text, font=myFont)
-    image_editable.text(((W - w) / 2, ((H) * 8 / 9) - h / 2), text, fill="red", font=myFont)
+    image_editable.text(
+        ((W - w) / 2, ((H) * 8 / 9) - h / 2), text, fill="red", font=myFont
+    )
     return my_image
